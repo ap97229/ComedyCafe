@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service'
 
 @Component({
   selector: 'app-user',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  comedians = []
 
-  ngOnInit(): void {
+  constructor(private appService: AppService) { }
+
+  async ngOnInit(): Promise<void> {
+    await this.appService.getComedians().then(res=>{
+      this.comedians = res
+    })
   }
 
 }
