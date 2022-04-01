@@ -1,0 +1,23 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /cafe
+
+spring:
+  datasource:
+    url: ${HSS_DEV_DB_URL}
+    username: ${HSS_DEV_DB_USER}
+    password: ${HSS_DEV_DB_PWD}
+    platform: oracle
+  mail:
+    host: smtp.ams.com
+    port: 25
+    from: c360_platform_auto@cgi.com
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+    protocol: smtp
+    test-connection: false
